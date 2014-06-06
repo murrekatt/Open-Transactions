@@ -41,7 +41,7 @@ deploy:
     secure: Z9XdnqSQhzzg1YHDLNX2PHt3Kufvw34e+VLfazWNJo4Kewd2gI0Wmbr5n2HUCQWCHl/+IyFCB+C+rVpYzDnmJ5NxBTnHmLAJyuuYpjfVtYxOnAxI2vPv/Aqe8Xv5+x8UY+j9onv/V7qrYooqqLM1TSpM9LcSKzEH4iHTa9r/Ut0=
   bucket: monetas-builds
   skip_cleanup: true
-  local-dir: build
+  local-dir: src
   upload-dir: libopentx/develop
   on:
     branch: develop
