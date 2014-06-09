@@ -1,9 +1,7 @@
 os:
   - linux
-  - osx
 language: cpp
 compiler:
-  - gcc
   - clang
 install: ./scripts/travis/install-deps.sh "${TRAVIS_OS_NAME}"
 script:
