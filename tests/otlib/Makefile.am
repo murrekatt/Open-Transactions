@@ -10,7 +10,8 @@ unittests_otlib_SOURCES		= main.cpp Test_OTData.cpp
 unittests_otlib_CXXFLAGS	= $(common_includes)
 
 unittests_otlib_LDFLAGS		= -L$(top_builddir)/src/otlib \
-				  -L$(top_builddir)/deps/src/gtest
+				  -L$(top_builddir)/deps/src/gtest \
+				  $(DEPS_LIBS)
 
 unittests_otlib_LDADD		= $(top_builddir)/src/otlib/libot.la \
 				  $(top_builddir)/deps/src/gtest/libgtest.la
