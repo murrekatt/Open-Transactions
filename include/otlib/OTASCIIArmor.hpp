@@ -133,8 +133,8 @@
 #ifndef __OT_ASCII_ARMOR_HPP__
 #define __OT_ASCII_ARMOR_HPP__
 
-#include "OTString.hpp"
 #include "OTStorage.hpp"
+#include "OTString.hpp"
 
 class OTASCIIArmor;
 class OTData;

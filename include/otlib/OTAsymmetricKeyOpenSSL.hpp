@@ -133,23 +133,12 @@
 #ifndef __OT_ASYMMETRIC_KEY_OPEN_SSL_HPP__
 #define __OT_ASYMMETRIC_KEY_OPEN_SSL_HPP__
 
-#include <list>
-#include <cstddef>
+#include "OTAsymmetricKey.hpp"
 
-#include "OTCommon.hpp"
-
-#include "Timer.hpp"
-
-#include "OTLowLevelKeyData.hpp"
-
-class OTCaller;
-class OTKeypair;
-class OTString;
-class OTPassword;
-class OTIdentifier;
 class OTASCIIArmor;
-class OTSignatureMetadata;
-class OTPasswordData;
+class OTCaller;
+class OTPassword;
+class OTString;
 
 
 // Todo:
@@ -183,20 +172,6 @@ class OTPasswordData;
 // since the above objects have SWIG C++ wrappers.
 //
 EXPORT bool OT_API_Set_PasswordCallback(OTCaller & theCaller); // Caller must have Callback attached already.
-
-
-// For getting the password from the user, for using his private key.
-//
-extern "C"
-{
-typedef int32_t OT_OPENSSL_CALLBACK(char *buf, int32_t size, int32_t rwflag, void *userdata); // <== Callback type, used for declaring.
-
-EXPORT	OT_OPENSSL_CALLBACK default_pass_cb;
-EXPORT	OT_OPENSSL_CALLBACK souped_up_pass_cb;
-}
-// Used for the actual function definition (in the .cpp file).
-//
-#define OPENSSL_CALLBACK_FUNC(name) extern "C" int32_t (name)(char *buf, int32_t size, int32_t rwflag, void *userdata)
 
 
 #if defined (OT_CRYPTO_USING_OPENSSL)

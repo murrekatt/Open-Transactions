@@ -133,8 +133,6 @@
 #ifndef __OT_CONTRACT_HPP__
 #define __OT_CONTRACT_HPP__
 
-#include <set>
-
 #include "OTIdentifier.hpp"
 #include "OTStringXML.hpp"
 

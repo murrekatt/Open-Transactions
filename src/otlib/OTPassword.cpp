@@ -130,14 +130,12 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTPassword.hpp>
+#include "OTPassword.hpp"
 
-#include <OTAssert.hpp>
-#include <OTString.hpp>
-#include <OTLog.hpp>
-#include <OTCrypto.hpp>
+#include "OTCrypto.hpp"
+#include "OTLog.hpp"
 
 
 // For SecureZeroMemory
@@ -164,13 +162,6 @@
   (((((size_t)(a)) + (b) - 1) | ((PAGESIZE) - 1)) + 1) - (((size_t)(a)) & (~((PAGESIZE) - 1))))
 #endif
 
-
-//#include "OTPassword.h"
-//
-//#include "OTString.h"
-//#include "OTCrypto.h"
-//
-//#include "OTLog.h"
 
 // For everything but Windows:
 //

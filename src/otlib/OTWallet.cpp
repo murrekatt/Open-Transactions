@@ -130,18 +130,24 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTWallet.hpp>
+#include "OTWallet.hpp"
 
-#include <OTLog.hpp>
-#include <OTPaths.hpp>
-#include <OTAccount.hpp>
-#include <OTServerContract.hpp>
-#include <OTPassword.hpp>
-#include <OTPurse.hpp>
+#include "OTAccount.hpp"
+#include "OTAssetContract.hpp"
+#include "OTCachedKey.hpp"
+#include "OTDataFolder.hpp"
+#include "OTFolders.hpp"
+#include "OTLog.hpp"
+#include "OTPassword.hpp"
+#include "OTPasswordData.hpp"
+#include "OTPseudonym.hpp"
+#include "OTPurse.hpp"
+#include "OTServerContract.hpp"
 
 #include "irrxml/irrXML.hpp"
+
 
 OTWallet::OTWallet() : m_strDataFolder(OTDataFolder::Get())
 {

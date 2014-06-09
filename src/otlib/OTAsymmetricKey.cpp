@@ -130,29 +130,22 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTAsymmetricKey.hpp>
+#include "OTAsymmetricKey.hpp"
 
-#include <stacktrace.h>
+#include "OTASCIIArmor.hpp"
+#include "OTCachedKey.hpp"
+#include "OTCaller.hpp"
+#include "OTCrypto.hpp"
+#include "OTIdentifier.hpp"
+#include "OTLog.hpp"
+#include "OTPasswordData.hpp"
+#include "OTSignatureMetadata.hpp"
 
 #if defined (OT_CRYPTO_USING_OPENSSL)
-
-#include "OTAsymmetricKey_OpenSSLPrivdp.hpp"
-#include "OpenSSL_BIO.hpp"
-
+#include "OTAsymmetricKeyOpenSSL.hpp"
 #endif
-
-#include "OTCaller.hpp"
-#include "OTIdentifier.hpp"
-#include <OTPassword.hpp>
-#include <OTAssert.hpp>
-#include <OTASCIIArmor.hpp>
-#include <OTLog.hpp>
-#include <OTCredential.hpp>
-#include <OTPayload.hpp>
-#include <OTCrypto.hpp>
-#include <OTSignature.hpp>
 
 
 //static

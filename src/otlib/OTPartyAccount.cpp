@@ -130,18 +130,15 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTPartyAccount.hpp>
+#include "OTPartyAccount.hpp"
 
-#include <OTLog.hpp>
-#include <OTContract.hpp>
-#include <OTPseudonym.hpp>
-#include <OTAccount.hpp>
-#include <OTScriptable.hpp>
-#include <OTSmartContract.hpp>
-#include <OTAgreement.hpp>
-#include <OTScript.hpp>
+#include "OTAccount.hpp"
+#include "OTAgent.hpp"
+#include "OTLog.hpp"
+#include "OTParty.hpp"
+#include "OTScript.hpp"
 
 
 // IDEA: Put a Nym in the Nyms folder for each entity. While it may

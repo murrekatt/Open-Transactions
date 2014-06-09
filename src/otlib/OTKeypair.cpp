@@ -144,20 +144,16 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-//FIX ORDER OF DEPENDENCY
-//#include <OTCredential.hpp>
-#include <OTKeypair.hpp>
+#include "OTKeypair.hpp"
 
-#include "OTLowLevelKeyData.hpp"
 #include "OTAsymmetricKey.hpp"
 #include "OTContract.hpp"
-#include <OTAssert.hpp>
-#include <OTSignature.hpp>
-#include <OTLog.hpp>
-#include <OTPaths.hpp>
-#include <OTPassword.hpp>
+#include "OTFolders.hpp"
+#include "OTLog.hpp"
+#include "OTLowLevelKeyData.hpp"
+#include "OTSignature.hpp"
 
 
 // DONE: Add OTKeypair member for m_pMetadata.

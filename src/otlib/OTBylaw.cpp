@@ -130,19 +130,16 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTBylaw.hpp>
+#include "OTBylaw.hpp"
 
-#include <OTLog.hpp>
-#include <OTClause.hpp>
-#include <OTContract.hpp>
-#include <OTPseudonym.hpp>
-#include <OTAccount.hpp>
-#include <OTScriptable.hpp>
-#include <OTSmartContract.hpp>
-#include <OTAgreement.hpp>
-#include <OTScript.hpp>
+#include "OTClause.hpp"
+#include "OTLog.hpp"
+#include "OTScriptable.hpp"
+#include "OTStorage.hpp"
+
+#include <set>
 
 
 void OTBylaw::Serialize(OTString & strAppend,

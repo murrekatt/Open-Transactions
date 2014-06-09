@@ -1,12 +1,13 @@
 
 AUTOMAKE_OPTIONS	=	subdir-objects
 
-SUBDIRS                 =	otlib otapi
+SUBDIRS                 =	otlib otextensions otapi
 
 opentxs_include_dir     =	$(top_srcdir)/include
 opentxs_source_dir      =	$(top_srcdir)/src
 
 common_includes         =	$(AM_CXXFLAGS)		 		\
+				-I$(top_srcdir)/deps/include/misc	\
 				-I$(top_srcdir)/deps/include		\
 				-I$(opentxs_include_dir)		\
 				-I$(opentxs_include_dir)/otlib
@@ -30,17 +31,17 @@ opentxs_SOURCES         =  $(opentxs_sources) $(otapi_headers)
 
 opentxs_CXXFLAGS        =  $(common_includes) -I$(otapi_headers_dir)
 
-opentxs_LDADD           =  otapi/libotapi.la otlib/libot.la $(DEPS_LIBS)
-opentxs_DEPENDENCIES    =  otapi/libotapi.la otlib/libot.la
+opentxs_LDADD           =  otapi/libotapi.la otextensions/libotextensions.la otlib/libot.la $(DEPS_LIBS)
+opentxs_DEPENDENCIES    =  otapi/libotapi.la otextensions/libotextensions.la otlib/libot.la
 
 #### OT Server
 
 otserver_SOURCES        =   $(otserver_common) $(otserver_sources) $(otserver_headers)
 
-otserver_CXXFLAGS       =   $(common_includes) -I$(otserver_headers_dir)
+otserver_CXXFLAGS       =   $(common_includes) -I$(otserver_headers_dir) -I$(opentxs_include_dir)/otextensions
 
-otserver_LDADD          =   otlib/libot.la $(DEPS_LIBS)
-otserver_DEPENDENCIES   =   otlib/libot.la
+otserver_LDADD          =   otextensions/libotextensions.la otlib/libot.la $(DEPS_LIBS)
+otserver_DEPENDENCIES   =   otextensions/libotextensions.la otlib/libot.la
 
 
 #### Createmint  (includes files from OT Server)
@@ -71,8 +72,8 @@ otapi_headers           =   $(otapi_headers_dir)/main.hpp		\
 
 #### OT Server
 
-otserver_common        =   ots/OTClientConnection.cpp	\
-                           ots/OTServer.cpp
+otserver_common         =   ots/OTClientConnection.cpp	\
+                            ots/OTServer.cpp
 
 otserver_sources        =   ots/xmlrpcxx_server.cpp
 

@@ -130,15 +130,12 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTPasswordData.hpp>
+#include "OTPasswordData.hpp"
 
-#include <OTPassword.hpp>
-#include <OTAssert.hpp>
-#include <OTString.hpp>
-#include <OTLog.hpp>
-#include <OTCrypto.hpp>
+#include "OTAssert.hpp"
+#include "OTString.hpp"
 
 
 // For SecureZeroMemory
@@ -164,14 +161,6 @@
   munlock(((void *)(((size_t)(a)) & (~((PAGESIZE)-1)))),\
   (((((size_t)(a)) + (b) - 1) | ((PAGESIZE) - 1)) + 1) - (((size_t)(a)) & (~((PAGESIZE) - 1))))
 #endif
-
-
-//#include "OTPassword.h"
-//
-//#include "OTString.h"
-//#include "OTCrypto.h"
-//
-//#include "OTLog.h"
 
 
 // Instantiate one of these whenever you do an action that may

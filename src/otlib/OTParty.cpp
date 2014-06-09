@@ -130,18 +130,15 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTParty.hpp>
+#include "OTParty.hpp"
 
-#include <OTLog.hpp>
-#include <OTContract.hpp>
-#include <OTPseudonym.hpp>
-#include <OTAccount.hpp>
-#include <OTScriptable.hpp>
-#include <OTSmartContract.hpp>
-#include <OTAgreement.hpp>
-#include <OTScript.hpp>
+#include "OTAgent.hpp"
+#include "OTLog.hpp"
+#include "OTPartyAccount.hpp"
+#include "OTPseudonym.hpp"
+#include "OTSmartContract.hpp"
 
 
 // Checks opening number on party, and closing numbers on his accounts.

@@ -130,13 +130,12 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTDigitalCash.hpp>
+#include "OTDigitalCash.hpp"
 
-#include <OTAssert.hpp>
-#include <OTString.hpp>
-#include <OTPaths.hpp>
+#include "OTDataFolder.hpp"
+#include "OTPaths.hpp"
 
 
 #ifdef OT_CASH_USING_MAGIC_MONEY
@@ -180,6 +179,5 @@ _OT_Lucre_Dumper::~_OT_Lucre_Dumper()
 
 
 #else  // No digital cash lib is selected? Perhaps error message here?
-
 
 #endif // Which digital cash library we're using.

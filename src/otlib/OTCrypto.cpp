@@ -135,25 +135,18 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTCrypto.hpp>
+#include "OTCrypto.hpp"
 
-#include <OTPaths.hpp>
-#include <OTAssert.hpp>
-#include <OTPassword.hpp>
-#include <OTLog.hpp>
-#include <OTIdentifier.hpp>
-#include <OTAsymmetricKey.hpp>
-#include "OTAsymmetricKeyOpenSSL.hpp"
-#include <OTStorage.hpp>
-#include <OTPseudonym.hpp>
-#include <OTSignature.hpp>
-
+#include "OTLog.hpp"
+#include "OTPassword.hpp"
+#include "OTPasswordData.hpp"
+#include "OTPaths.hpp"
+#include "OTPseudonym.hpp"
+#include "OTSignature.hpp"
 
 #include <bigint/BigIntegerLibrary.hh>
-
-#include <vector>
 
 #include "stacktrace.h"
 
@@ -167,7 +160,6 @@ extern "C"
 #include <sys/resource.h>
 #endif
 }
-
 
 #if defined (OT_CRYPTO_USING_OPENSSL)
 
@@ -198,9 +190,7 @@ extern "C"
 #include "OTAsymmetricKey_OpenSSLPrivdp.hpp"
 #include "OpenSSL_BIO.hpp"
 
-
 #elif defined (OT_CRYPTO_USING_GPG)
-
 
 #else
 
@@ -208,8 +198,6 @@ extern "C"
 
 
 // OpenSSL / Crypto-lib d-pointer
-
-
 #if defined (OT_CRYPTO_USING_GPG)
 
 // Someday    }:-)        OTCrypto_GPG
@@ -328,6 +316,38 @@ bool OTCryptoConfig::GetSetAll()
     return true;
 }
 
+
+bool OTCryptoConfig::GetSetValue(OTSettings & config, const std::string strKeyName,
+	const int32_t nDefaultValue, const int32_t *& out_nValue)
+
+{
+	if (strKeyName.empty())    return false;
+	if (3 > strKeyName.size()) return false;
+
+	OTString strResult("");
+	bool bIsNew(false);
+
+	{
+		int64_t nValue = 0;
+		config.CheckSet_long("crypto", strKeyName, nDefaultValue, nValue, bIsNew);
+
+		if (NULL != out_nValue) { delete out_nValue; out_nValue = NULL; }
+
+		out_nValue = new int32_t(bIsNew ? nDefaultValue : static_cast<int32_t>(nValue));
+	}
+
+	return true;
+}
+
+
+const int32_t & OTCryptoConfig::GetValue(const int32_t *& pValue)
+{
+	if (NULL == pValue) { if (!GetSetAll()) OT_FAIL; }
+	if (NULL == pValue) { OT_FAIL; }
+	return *pValue;
+}
+
+
 uint32_t OTCryptoConfig::IterationCount()       { return GetValue(sp_nIterationCount); }
 uint32_t OTCryptoConfig::SymmetricSaltSize()    { return GetValue(sp_nSymmetricSaltSize); }
 uint32_t OTCryptoConfig::SymmetricKeySize()     { return GetValue(sp_nSymmetricKeySize); }
@@ -406,8 +426,6 @@ int32_t main()
 }
 */
 
-
-#include <iostream>
 
 #ifndef _PASSWORD_LEN
 #define _PASSWORD_LEN   128

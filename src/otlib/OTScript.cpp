@@ -130,20 +130,16 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTScript.hpp>
+#include "OTScript.hpp"
 
-#include <OTLog.hpp>
-#include <OTAssert.hpp>
-#include <OTStorage.hpp>
+#include "OTLog.hpp"
+#include "OTParty.hpp"
+#include "OTVariable.hpp"
 
 #ifdef OT_USE_SCRIPT_CHAI
-#  include "OTScriptChai.hpp"
-#  include <chaiscript/chaiscript.hpp>
-#  ifdef OT_USE_CHAI_STDLIB
-#    include <chaiscript/chaiscript_stdlib.hpp>
-#  endif
+#include "OTScriptChai.hpp"
 #endif
 
 

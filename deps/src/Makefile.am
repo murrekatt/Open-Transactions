@@ -1,6 +1,13 @@
 
 AUTOMAKE_OPTIONS	=	subdir-objects
 
-SUBDIRS                 =	bigint \
-				gtest \
-				irrxml
+SUBDIRS                 =	gtest
+
+if TRANSPORT_ZMQ4
+SUBDIRS 		+=	zmq
+endif
+
+SUBDIRS                 +=	bigint	\
+				irrxml	\
+				lucre	\
+				misc

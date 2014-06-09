@@ -130,27 +130,26 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTPseudonym.hpp>
+#include "OTPseudonym.hpp"
 
-#include <OTLog.hpp>
-#include <OTCredential.hpp>
-#include <OTLedger.hpp>
-#include <OTPaths.hpp>
-#include <OTMessage.hpp>
-#include <OTPassword.hpp>
-#include <OTPayment.hpp>
-#include <OTSignedFile.hpp>
-#include <OTSymmetricKey.hpp>
-#include <OTSubkey.hpp>
-#include <OTSubcredential.hpp>
+#include "OTCredential.hpp"
+#include "OTFolders.hpp"
+#include "OTLedger.hpp"
+#include "OTLog.hpp"
+#include "OTMessage.hpp"
+#include "OTPassword.hpp"
+#include "OTPasswordData.hpp"
+#include "OTPayment.hpp"
+#include "OTSignedFile.hpp"
+#include "OTSubkey.hpp"
+#include "OTSymmetricKey.hpp"
 
 #include "irrxml/irrXML.hpp"
 
-#include <fstream>
-#include <list>
 #include <algorithm>
+#include <fstream>
 
 
 //static

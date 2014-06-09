@@ -130,20 +130,14 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-//FIX ORDER OF DEPENDENCY
-#include <OTBylaw.hpp>
-#include <OTStash.hpp>
+#include "OTStash.hpp"
 
-#include <OTLog.hpp>
-#include <OTContract.hpp>
-#include <OTPseudonym.hpp>
-#include <OTAccount.hpp>
-#include <OTScriptable.hpp>
-#include <OTSmartContract.hpp>
-#include <OTAgreement.hpp>
-#include <OTScript.hpp>
+#include "OTContract.hpp"
+#include "OTLog.hpp"
+#include "OTStashItem.hpp"
+#include "OTStorage.hpp"
 
 #include "irrxml/irrXML.hpp"
 

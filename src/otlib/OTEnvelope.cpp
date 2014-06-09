@@ -130,17 +130,15 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTEnvelope.hpp>
+#include "OTEnvelope.hpp"
 
-#include <OTAssert.hpp>
-#include <OTLog.hpp>
-#include <OTSymmetricKey.hpp>
-#include <OTPassword.hpp>
-#include <OTIdentifier.hpp>
-#include <OTPseudonym.hpp>
-
+#include "OTCrypto.hpp"
+#include "OTLog.hpp"
+#include "OTPassword.hpp"
+#include "OTPseudonym.hpp"
+#include "OTSymmetricKey.hpp"
 
 extern "C"
 {

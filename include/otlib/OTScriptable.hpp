@@ -134,8 +134,6 @@
 #ifndef __OT_SCRIPTABLE_HPP__
 #define __OT_SCRIPTABLE_HPP__
 
-#include "OTCommon.hpp"
-
 #include "OTContract.hpp"
 
 class OTAccount;

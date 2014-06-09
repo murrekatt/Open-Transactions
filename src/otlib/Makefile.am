@@ -1,13 +1,7 @@
 
 AUTOMAKE_OPTIONS 	=	subdir-objects
 
-SUBDIRS 		= 	otprotob lucre otext
-
-if TRANSPORT_ZMQ4
-
-SUBDIRS 		+= zmq
-
-endif
+SUBDIRS 		= 	otprotob
 
 lib_LTLIBRARIES		=	libot.la
 
@@ -21,7 +15,8 @@ common_includes		=	$(AM_CXXFLAGS)				\
 				-I$(top_builddir)/include/otlib 	\
 				-I$(opentxs_include_dir)		\
 				-I$(opentxs_include_dir)/otlib		\
-				-I$(opentxs_include_dir)/containers	\
+				-I$(top_srcdir)/deps/include/misc	\
+				-I$(top_srcdir)/deps/include/containers	\
 				-I$(top_srcdir)/deps/include		\
 				-DOT_PREFIX_PATH="\"${prefix}\""	\
 				-DOT_VERSION="\"${VERSION}\""
@@ -37,30 +32,18 @@ libot_la_CXXFLAGS	=	$(common_includes)
 
 libot_la_LIBADD		=	$(top_builddir)/deps/src/bigint/libbigint.la	\
 				$(top_builddir)/deps/src/irrxml/libirrxml.la	\
-                                lucre/liblucre.la				\
-				otprotob/libotprotob.la				\
-                                otext/libotext.la				\
+                                $(top_builddir)/deps/src/lucre/liblucre.la	\
+				$(top_builddir)/deps/src/misc/libmisc.la	\
+                                otprotob/libotprotob.la				\
                                 $(DEPS_LIBS)
 
 libot_la_DEPENDENCIES	=	$(top_builddir)/deps/src/bigint/libbigint.la	\
 				$(top_builddir)/deps/src/irrxml/libirrxml.la	\
-				lucre/liblucre.la				\
-				otprotob/libotprotob.la				\
-				otext/libotext.la
+				$(top_builddir)/deps/src/lucre/liblucre.la	\
+				$(top_builddir)/deps/src/misc/libmisc.la	\
+				otprotob/libotprotob.la
 
 libot_la_LDFLAGS	=	--no-undefined
-
-
-
-#### Transport ZMQ 'option'
-
-if TRANSPORT_ZMQ4
-
-libot_la_LIBADD		+=	zmq/libzmq.la
-
-libot_la_DEPENDENCIES	+=	zmq/libzmq.la
-
-endif
 
 
 
@@ -156,7 +139,6 @@ otlib_sources     =	OTAccount.cpp		\
 			OTSignature.cpp		\
 			OTSignedFile.cpp	\
 			OTSmartContract.cpp	\
-			OTSocket.cpp		\
 			OTStash.cpp		\
 			OTStashItem.cpp		\
 			OTStorage.cpp		\
@@ -180,11 +162,9 @@ otlib_headers_dir	=	$(opentxs_include_dir)/otlib
 otlib_headers		=	$(otlib_headers_dir)/constants.h		\
 				$(otlib_headers_dir)/fast_mutex.h		\
 				$(otlib_headers_dir)/stacktrace.h		\
-				$(otlib_headers_dir)/tinythread.hpp		\
 				$(otlib_headers_dir)/win32_utf8conv.hpp		\
 				$(otlib_headers_dir)/win32_utf8conv_inl.hpp	\
 				$(otlib_headers_dir)/OpenSSL_BIO.hpp		\
-				$(otlib_headers_dir)/Timer.hpp			\
 				$(otlib_headers_ext)
 
 otlib_headers_ext	=	$(top_builddir)/include/otlib/ot_config.h   	\
@@ -270,7 +250,6 @@ otlib_headers_ext	=	$(top_builddir)/include/otlib/ot_config.h   	\
 				$(otlib_headers_dir)/OTSmartContract.hpp	\
 				$(otlib_headers_dir)/OTStash.hpp		\
 				$(otlib_headers_dir)/OTStashItem.hpp		\
-				$(otlib_headers_dir)/OTSocket.hpp		\
 				$(otlib_headers_dir)/OTStorage.hpp		\
 				$(otlib_headers_dir)/OTString.hpp		\
 				$(otlib_headers_dir)/OTStringXML.hpp		\
@@ -287,7 +266,7 @@ otlib_headers_ext	=	$(top_builddir)/include/otlib/ot_config.h   	\
 				$(otlib_headers_dir)/OTWallet.hpp
 ####   Containers
 
-containers_headers_dir	=	$(opentxs_include_dir)/containers
+containers_headers_dir	=	$(top_srcdir)/deps/include/containers
 
 containers_headers 	=	$(containers_headers_dir)/containers.hpp	\
 				$(containers_headers_dir)/containers_fixes.hpp	\

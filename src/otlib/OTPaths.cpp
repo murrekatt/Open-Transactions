@@ -130,27 +130,24 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTPaths.hpp>
+#include "OTPaths.hpp"
 
-#include <OTAssert.hpp>
-#include <OTLog.hpp>
+#include "OTLog.hpp"
 #ifdef _WIN32
 #include "OTWindowsRegistryTools.hpp"
 #endif
 
+#include <cerrno>
 #include <vector>
 
 #include <sys/stat.h>
 
-
 #ifdef _WIN32
 #include <direct.h>
 #include <shlobj.h>
-#endif
-
-#ifndef _WIN32
+#else
 #include <libgen.h>
 #include <unistd.h>
 #endif

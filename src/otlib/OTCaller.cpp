@@ -130,17 +130,12 @@
  -----END PGP SIGNATURE-----
  **************************************************************/
 
-#include <stdafx.hpp>
+#include "stdafx.hpp"
 
-#include <OTCaller.hpp>
+#include "OTCaller.hpp"
 
 #include "OTCallback.hpp"
-#include <OTPassword.hpp>
-#include <OTAssert.hpp>
-#include <OTString.hpp>
-#include <OTLog.hpp>
-#include <OTCrypto.hpp>
-
+#include "OTLog.hpp"
 
 // For SecureZeroMemory
 #ifdef _WIN32
@@ -165,14 +160,6 @@
   munlock(((void *)(((size_t)(a)) & (~((PAGESIZE)-1)))),\
   (((((size_t)(a)) + (b) - 1) | ((PAGESIZE) - 1)) + 1) - (((size_t)(a)) & (~((PAGESIZE) - 1))))
 #endif
-
-
-//#include "OTPassword.h"
-//
-//#include "OTString.h"
-//#include "OTCrypto.h"
-//
-//#include "OTLog.h"
 
 
 OTCaller::~OTCaller()
@@ -305,6 +292,7 @@ void OTCaller::callTwo()
  SecureZeroMemory(szPassword, sizeof(szPassword));
 
  */
+
 
 /*
  SOURCE: https://www.securecoding.cert.org
